@@ -106,7 +106,7 @@ class Car extends Mydata {
       <div>
         <h1>My {brand}</h1>
         <p>
-          It is a {color} " " {model} from {year}.
+          It is a {super.color} " " {model} from {year}.
         </p>
       </div>
     );
