@@ -16,7 +16,7 @@ class Mydata extends React.Component {
   constructor(props) {
   super(props);
   this.state = { username: '' ,
-eng : 0, maths : 0 ,ss : 0 };
+eng : 0, maths : 0 ,ss : 0, color:'' };
     }
 
     nameChange =(e)=>{
@@ -43,9 +43,9 @@ this.setState({ ss : e.target.value})
     return( console.log("total  "+total ))
             }
 
-  change =(e)=>{
+  color =(e)=>{
+    this.setState({ color : e.target.value})
       document.body.style.backgroundColor = e.target.value
-
     }
 
 
@@ -53,6 +53,7 @@ this.setState({ ss : e.target.value})
   load = () =>(
 
     console.log ("name: " + this.state.name),
+    console.log ("color : " + this.state.color),
     console.log ("car " + this.state.car),
     console.log ("english " + this.state.eng),
     console.log ("maths " + this.state.maths),
@@ -70,7 +71,7 @@ this.setState({ ss : e.target.value})
             <p>Enter your name:</p>
             <input type="text" onChange={this.nameChange} />
             <p>Enter your favorite color</p>
-            <input type="color" id="bgcolor"  onChange={this.change}/>
+            <input type="color" id="bgcolor"  onChange={this.color}/>
             <p>Enter your favorite car</p>
             <input type="text" onChange={this.carName}/>
             <p>Enter your english marks:</p>
@@ -90,10 +91,18 @@ this.setState({ ss : e.target.value})
 
 }
 
-class Car extends React.Component {
+class Car extends Mydata {
+  constructor(props) {
+
+    super(props);
+
+
+  }
   render() {
+
     const{brand,model,color,year}=this.props
     return (
+
       <div>
         <h1>My {brand}</h1>
         <p>
